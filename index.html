@@ -1,176 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>09/09/2009</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Funnel+Display:wght@700&family=Lavishly+Yours&
-    family=Pinyon+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&
-    amily=Roboto+Condensed:ital,wght@0,100;1,100&family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+    <title>Acesso Restrito</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/chorão simbolo.png" type="image/x-icon">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4E3D63 0%, #634C7E 100%);
+            height: 100vh; display: flex; justify-content: center; align-items: center;
+            color: white; overflow: hidden;
+        }
+        .password-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center; width: 90%; max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .logo { margin-bottom: 25px; }
+        .logo img { width: 120px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        h1 { font-size: 28px; margin-bottom: 10px; font-weight: 600; }
+        p { margin-bottom: 25px; font-size: 16px; opacity: 0.9; }
+        .input-group { position: relative; margin-bottom: 25px; }
+        .input-group i {
+            position: absolute; left: 15px; top: 50%;
+            transform: translateY(-50%); color: rgba(255, 255, 255, 0.7);
+        }
+        input[type="password"] {
+            width: 100%; padding: 15px 15px 15px 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px; color: white; font-size: 16px;
+            outline: none; transition: all 0.3s ease;
+        }
+        input[type="password"]:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        button {
+            width: 100%; padding: 15px;
+            background: #d9a441; border: none; border-radius: 50px;
+            color: #000; font-size: 16px; font-weight: 600; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover { background: #e5b34f; transform: translateY(-3px); }
+        .message { margin-top: 20px; font-size: 14px; display: none; }
+        .error { color: #ff6b6b; }
+        .hint { margin-top: 25px; font-size: 13px; opacity: 0.7; cursor: pointer; }
+        .hint:hover { opacity: 1; }
+    </style>
 </head>
-
 <body>
-    <header>
+    <div class="password-container">
         <div class="logo">
-            <img src="img/chorão simbolo.png" alt="">
+            <img src="img/Sem nome (Post para Instagram (45)).png" alt="Ícone">
         </div>
-        <nav>
-            <ul>
-                <li><a href="#parabens">PARABÉNS</a></li>
-                
-            </ul>
-        </nav>
-        <img src="" alt="">
-    </header>
-    <main>
-        <div class="principal">
-            <img src="img/Sem nome (Post para Instagram (45)).png" alt="foto do chorão">
+        
+        <h1>Acesso Restrito</h1>
+        <p>Digite a senha para visualizar o conteúdo especial</p>
+        
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Digite a senha" autocomplete="off">
         </div>
+        
+        <button id="enter-btn">Entrar</button>
+        <div id="message" class="message error"></div>
+        <div class="hint" id="hint">Dica: Data especial (formato: DDMMAAAA)</div>
+    </div>
 
-        <section class="meencontra">
-            <h1>ME ENCONTRA</h1>
-            <h3>Eu não conheço todas as flores mas <br> Vou mandar todas que eu puder!</h3>
-            <div class="video">
-                <video src="img/Charlie Brown Jr. - Me Encontra (Lyric Video).mp4" controls width="650"
-                    autoplay></video>
-            </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const enterBtn = document.getElementById('enter-btn');
+            const message = document.getElementById('message');
+            const hint = document.getElementById('hint');
 
+            const correctPassword = "09092009"; // senha correta
 
-        </section>
-
-        <section class="parabens" id="parabens">
-            <div class="texto3">
-                <h1>Feliz Aniversario</h1>
-                <h3>
-                    Muitos anos de vida, te desejo tudo de bom que Deus pode te proporcionar.<br>
-                    Que você conquiste tudo que sonha
-                </h3>
-                <button class="botao2"><a href="#modal1">CLIQUE AQUI</a></button>
-            </div>
-            <img src="img/Sem nome (Post para Instagram (45)) (2).png" alt="Foto aniversário">
-        </section>
-
-
-        <section id="galeria" class="galeria">
-
-            <h1>Lau e Bequinha</h1>
-            <h3>Obrigado por deixar esses momentos mais especiais</h3>
-            <div class="fotos">
-                <div class="foto1">
-                    <img src="img/foto1.jpg" alt="Rafiki" width="90%">
-
-                </div>
-
-                <div class="foto2">
-                    <img src="img/foto2.jpg" alt="Rafiki" width="90%">
-
-                </div>
-
-                <div class="foto3">
-                    <img src="img/foto3.jpg" alt="Rafiki" width="90%">
-
-                </div>
-
-
-                <div class="foto4">
-                    <img src="img/foto4.jpg" alt="Rafiki">
-
-                </div>
-
-
-                <div class="foto5">
-                    <img src="img/foto5.jpg" alt="Rafiki">
-
-                </div>
-
-                <div class="foto6">
-                    <img src="img/foto6.jpg" alt="Rafiki">
-
-                </div>
-
-                <div class="foto7">
-                    <img src="img/foto7.jpg" alt="Rafiki">
-
-                </div>
-
-                <div class="foto8">
-                    <img src="img/foto8.jpg" alt="Rafiki">
-
-                </div>
-
-            </div>
-
-            <div class="bubbles-container" id="bubbles-container"></div>
-
-
-        </section>
-
-
-
-    </main>
-
-    <div class="card">
-
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h3>Parabéns Meu Bem!</h3>
-                <p>Oi bequinhaaa <br>
-                    Queria começar te agradecendo por tudo que fez e faz por mim, saiba que eu te amo muito e te desejo
-                    as melhores coisas que Deus pode lhe proporcionar.
-                    Lembro como se fosse ontem eu no meu primeiro dia de aula no cantinho da sala quando você veio e me
-                    cumprimentou "Oi meu nome é rebeca vc é a laura né" lembro que quando te vi falei "nossa ela parece
-                    ser tão legal", pelo incrivel que pareça, eu acertei. Você é luz meu bem, por onde você passa tira
-                    sorrisos, gargalhadas e deixa tudo mais leve. Nunca perca sua essencia, seu jeitinho maluco.
-                    Acredito que Deus não une propossitos mais sim pessoas, nos conhecemos lá no prezinho e ele nos uniu
-                    novamente até finalizar o ensino medio. Nossa amizade é MUITO importante para mim, vivemos altos e
-                    baixos mas meu carinho por você nunca mudou e nem vai mudar. Quero te levar pra vida princesa, mas
-                    se as coisas sairem do planejado saiba que você sempre vai ter um espação no meu coração. Saiba que
-                    pode contar comigo para o que for preciso, agradeço Deus todos os dias por ter te colocado na minha
-                    vida e ter me dado além de tudo uma melhor amiga.
-
-                <h4>Eu te amo bb</h4>
-                <a href="#" onclick="history.back(); " class="close-btn">Fechar</a>
-            </div>
-        </div>
-
-        <footer>
-    <div id="bubbles-container"></div>
-    <p>&copy; 2024 Laura Bequinha. Todos os direitos reservados.</p>
-</footer>
-
-        <script>
-            function initBubbles() {
-                const bubblesContainer = document.getElementById('bubbles-container');
-                if (!bubblesContainer) return;
-
-                bubblesContainer.innerHTML = '';
-                const bubbleCount = 12;
-
-                for (let i = 0; i < bubbleCount; i++) {
-                    const bubble = document.createElement('div');
-                    bubble.classList.add('bubble');
-
-                    const size = Math.random() * 45 + 15;
-                    const position = Math.random() * 100;
-                    const duration = Math.random() * 10 + 8;
-                    const delay = Math.random() * 5;
-
-                    bubble.style.width = `${size}px`;
-                    bubble.style.height = `${size}px`;
-                    bubble.style.left = `${position}%`;
-                    bubble.style.animationDuration = `${duration}s`;
-                    bubble.style.animationDelay = `${delay}s`;
-
-                    bubblesContainer.appendChild(bubble);
+            enterBtn.addEventListener('click', function() {
+                if (passwordInput.value === correctPassword) {
+                    // Senha correta → redireciona
+                    window.location.href = "index.html";
+                } else {
+                    message.textContent = "Senha incorreta. Tente novamente.";
+                    message.style.display = "block";
+                    passwordInput.style.animation = "shake 0.5s";
+                    setTimeout(() => { passwordInput.style.animation = ""; }, 500);
                 }
-            }
+            });
 
-            document.addEventListener('DOMContentLoaded', initBubbles);
-            window.addEventListener('resize', initBubbles);
-        </script>
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') enterBtn.click();
+            });
+
+            hint.addEventListener('click', function() {
+                alert("A senha é uma data especial no formato DDMMAAAA (sem barras ou espaços).");
+            });
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    20%, 60% { transform: translateX(-10px); }
+                    40%, 80% { transform: translateX(10px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
-
 </html>
