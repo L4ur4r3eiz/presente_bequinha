@@ -20,13 +20,13 @@
         <nav>
             <ul>
                 <li><a href="#parabens">PARABÉNS</a></li>
-                <li><a href="#galeria">NÓS</a></li>
+                
             </ul>
         </nav>
         <img src="" alt="">
     </header>
     <main>
-        <div class="principal" >
+        <div class="principal">
             <img src="img/Sem nome (Post para Instagram (45)).png" alt="foto do chorão">
         </div>
 
@@ -48,13 +48,14 @@
                     Muitos anos de vida, te desejo tudo de bom que Deus pode te proporcionar.<br>
                     Que você conquiste tudo que sonha
                 </h3>
-                <button class="botao2"><a href="#modal1">NÃO ABRA</a></button>
+                <button class="botao2"><a href="#modal1">CLIQUE AQUI</a></button>
             </div>
             <img src="img/Sem nome (Post para Instagram (45)) (2).png" alt="Foto aniversário">
         </section>
 
 
         <section id="galeria" class="galeria">
+
             <h1>Lau e Bequinha</h1>
             <h3>Obrigado por deixar esses momentos mais especiais</h3>
             <div class="fotos">
@@ -102,6 +103,9 @@
 
             </div>
 
+            <div class="bubbles-container" id="bubbles-container"></div>
+
+
         </section>
 
 
@@ -127,12 +131,46 @@
                     pode contar comigo para o que for preciso, agradeço Deus todos os dias por ter te colocado na minha
                     vida e ter me dado além de tudo uma melhor amiga.
 
-                    <h4>Eu te amo Meu bem</h4>
-                    <a href="#" onclick="history.back(); " class="close-btn">Fechar</a>
+                <h4>Eu te amo bb</h4>
+                <a href="#" onclick="history.back(); " class="close-btn">Fechar</a>
             </div>
         </div>
 
+        <footer>
+    <div id="bubbles-container"></div>
+    <p>&copy; 2024 Laura Bequinha. Todos os direitos reservados.</p>
+</footer>
 
+        <script>
+            function initBubbles() {
+                const bubblesContainer = document.getElementById('bubbles-container');
+                if (!bubblesContainer) return;
+
+                bubblesContainer.innerHTML = '';
+                const bubbleCount = 12;
+
+                for (let i = 0; i < bubbleCount; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+
+                    const size = Math.random() * 45 + 15;
+                    const position = Math.random() * 100;
+                    const duration = Math.random() * 10 + 8;
+                    const delay = Math.random() * 5;
+
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.left = `${position}%`;
+                    bubble.style.animationDuration = `${duration}s`;
+                    bubble.style.animationDelay = `${delay}s`;
+
+                    bubblesContainer.appendChild(bubble);
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', initBubbles);
+            window.addEventListener('resize', initBubbles);
+        </script>
 </body>
 
 </html>
